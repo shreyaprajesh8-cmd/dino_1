@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cyber Dino Run | Modern Arcade</title>
+  <meta name="description" content="A sleek, neon-infused Chrome Dino style runner game with smooth physics, sound effects, day/night shift, and high score tracking.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="stars-bg"></div>
+
+  <div class="game-container" id="gameContainer">
+    <!-- Header / HUD -->
+    <header class="game-header">
+      <div class="logo-area">
+        <span class="badge">ARCADE EDITION</span>
+        <h1 class="game-title">CYBER<span>DINO</span></h1>
+      </div>
+      <div class="scoreboard">
+        <div class="score-card">
+          <span class="label">HIGH</span>
+          <span class="value" id="highScoreText">00000</span>
+        </div>
+        <div class="score-card current">
+          <span class="label">SCORE</span>
+          <span class="value" id="scoreText">00000</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Canvas Wrapper -->
+    <div class="canvas-wrapper">
+      <canvas id="gameCanvas" width="900" height="300"></canvas>
+
+      <!-- Overlay Screens -->
+      <div class="overlay" id="startOverlay">
+        <div class="overlay-card">
+          <div class="dino-avatar">🦖</div>
+          <h2>READY TO RUN?</h2>
+          <p>Dodge cacti, leap over obstacles, and survive the digital wasteland!</p>
+          <div class="controls-pill">
+            <span><kbd>SPACE</kbd> or <kbd>↑</kbd> to Jump</span>
+            <span><kbd>↓</kbd> to Duck</span>
+            <span>Tap screen for Mobile</span>
+          </div>
+          <button class="action-btn" id="startBtn">START RUN</button>
+        </div>
+      </div>
+
+      <div class="overlay hidden" id="gameOverOverlay">
+        <div class="overlay-card game-over-card">
+          <div class="skull-icon">💥</div>
+          <h2>GAME OVER</h2>
+          <p id="finalScoreMsg">You scored 0 points</p>
+          <button class="action-btn" id="restartBtn">PLAY AGAIN</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer Controls & Sound Toggle -->
+    <footer class="game-footer">
+      <div class="controls-hint">
+        <span class="key-hint"><kbd>Space</kbd> / <kbd>↑</kbd> Jump</span>
+        <span class="key-hint"><kbd>↓</kbd> Duck</span>
+      </div>
+
+      <div class="audio-controls">
+        <button id="soundToggleBtn" class="icon-btn" title="Toggle Sound">
+          <span id="soundIcon">🔊</span>
+        </button>
+      </div>
+
+      <!-- Mobile Touch Buttons -->
+      <div class="touch-controls" id="touchControls">
+        <button class="touch-btn" id="touchDuckBtn" aria-label="Duck">⬇ DUCK</button>
+        <button class="touch-btn jump-btn" id="touchJumpBtn" aria-label="Jump">⬆ JUMP</button>
+      </div>
+    </footer>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>
